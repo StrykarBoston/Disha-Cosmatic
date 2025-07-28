@@ -1,11 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trending Animations Skin Care</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-  <style>
+/* Slideshow Styles for Worldwide Fashion Collection */
+.collections-slideshow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto 32px auto;
+  overflow: hidden;
+}
+.collections-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(.77,0,.18,1);
+  will-change: transform;
+}
+.collection-item {
+  min-width: 260px;
+  margin: 0 12px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 18px 12px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.slide-arrow {
+  background: #f5f3ee;
+  border: none;
+  color: #6a7c60;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 2;
+  transition: background 0.2s;
+}
+.slide-arrow:hover {
+  background: #e0e0d1;
+}
+
     html {
       scroll-behavior: smooth;
     }
@@ -336,135 +370,70 @@
       .features, .collections, .products-list { flex-direction: column; gap: 16px; }
     }
     /* Other styles remain unchanged */
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <a href="#" class="logo">
-  <img src="./nav logo.png" alt="Disha Logo" style="height:60px;">
-</a>
-      <nav>
-        <div class="menu-toggle" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="nav-links" id="navLinks">
-          <a href="#">Home</a>
-          <a href="./skincare_site/shop.html">Shop</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="container hero">
-      <div class="hero-img">
-        <img src="./2211.i203.039.F.m004.c9.sandalwood_realistic_perfumes_aromatherapy_AD-removebg-preview.png"style="height: 254px;px;" alt="Product Model">
-      </div>
-      <div class="hero-content">
-        <h1 class="hero-title">100% Organic Wrinkle Removing Creams</h1>
-        <p class="hero-desc">
-          Discover your natural beauty with our carefully formulated, organic creams for face and body. Gentle, pure, and always cruelty-free.
-        </p>
-        <div class="features">
-          <div class="feature"><b>Natural</b> Plant-based and toxin-free for gentle care.</div>
-          <div class="feature"><b>Fragrance Free</b> No artificial scents or harsh chemicals.</div>
-          <div class="feature"><b>Allergy Tested</b> Safe for all skin types.</div>
-          <div class="feature"><b>Paraben Free</b> Clean formula with no harmful additives.</div>
-        </div>
-      </div>
-    </section>
-    <section class="container section">
-      <div class="section-title">Worldwide Fashion Collection</div>
-      <div class="collections">
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Soothing Cream">
-          </div>
-          <div class="collection-title">Aloe Herb Soothing Gel</div>
-          <div class="collection-desc">For instant comfort & hydration.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Blush Cream">
-          </div>
-          <div class="collection-title">Natural Face Cream</div>
-          <div class="collection-desc">Daily rejuvenation for soft, glowing skin.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Moisturizer">
-          </div>
-          <div class="collection-title">Hydra Luxe Moisturizer</div>
-          <div class="collection-desc">Long-lasting, lightweight hydration.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </section>
-    <section class="container section">
-      <div class="section-title">Latest Worthwhile Collections</div>
-      <div class="products-list">
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="Apricot Balm">
-          </div>
-          <div class="product-title">Apricot Melon Smoothing Balm</div>
-          <div class="product-desc">Softens and refreshes tired skin.</div>
-        </div>
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="BlueHerb">
-          </div>
-          <div class="product-title">BlueHerb SkinClarity Cream</div>
-          <div class="product-desc">Clarity and bright radiance.</div>
-        </div>
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="Cucumber Serum">
-          </div>
-          <div class="product-title">Revitalize Cooling Serum</div>
-          <div class="product-desc">Ultimate cool and smooth finish.</div>
-        </div>
-      </div>
-    </section>
-    <!-- Add more animated, visually rich sections as needed -->
-  </main>
-  <footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
-    &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
-  </footer>
-  <script>
-    // Responsive Mobile Menu
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
-    // Hide menu on outside click
-    document.body.addEventListener('click', function(e) {
-      const nav = document.querySelector('.nav');
-      if(window.innerWidth<751){
-        const navLinks = document.getElementById('navLinks');
-        if(!nav.contains(e.target)){navLinks.classList.remove('active');}
-      }
-    });
 
-    // Scroll-reveal animation
-    const animEls = document.querySelectorAll('.animate');
-    if('IntersectionObserver'in window){
-      const obs = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },{threshold:.11});
-      animEls.forEach(el=>obs.observe(el));
-    } else {
-      animEls.forEach(el=>el.classList.add('visible'));
-    }
-  </script>
-</body>
-</html>
+    .promo-banners {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 26px; /* Matches hero section margin */
+}
+.banner-item {
+  flex: 1;
+  min-width: 0;
+  border-radius: 18px; /* Matches product item radius */
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(50,60,60,.08); /* Matches product item shadow */
+  transition: transform .2s, box-shadow .2s;
+}
+.banner-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 28px #87ecb344; /* Matches product hover effect */
+}
+.banner-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+ @media (max-width: 750px) {
+  .promo-banners {
+    flex-direction: column;
+    gap: 16px; /* Reduce gap for vertical stacking */
+  }
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 45px 10px 20px;
+    border-radius: 24px;
+    border: 1px solid #e0e0e0;
+    background-color: #f5f3ee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color .3s, box-shadow .3s;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #79e7a9;
+    box-shadow: 0 0 8px #b8fad088;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #6a7c60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover svg {
+    color: #3a6844;
+}
