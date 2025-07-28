@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disha Skin Care - Natural Herbal Products</title>
+    <link rel="stylesheet" href="./shopstyle.css">
+     <script src="./shopscript.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+       
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <img src="/img/nav logo.png" alt="Disha Logo" style="height: 41px;">
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#soap">Soap</a></li>
+                <li><a href="#shampoo">Shampoo</a></li>
+                <li><a href="#hair-oil">Hair Oil</a></li>
+                <li><a href="#beauty">Beauty</a></li>
+            </ul>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for...">
+            </div>
+
+            <div class="user-actions">
+                <button class="sign-in-btn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>Sign In</button>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+   
+        <div class="slideshow-container">
+		<div class="slide fade">
+			<img src=
+"/img/hair oil slide banner.jpg"
+				alt="Slide 1">
+		</div>
+		<div class="slide fade">
+			<img src=
+"./img/shampoo slide banner.jpg">
+		</div>
+		<div class="slide fade">
+			<img src=	 
+"./img/hair oil slide banner.jpg"
+				alt="Slide 3">
+		</div>
+		<div class="slide fade">
+			<img src=
+"./img/hair oil slide banner.jpg"
+				alt="Slide 3">
+		</div>
+		<div class="slide fade">
+			<img src=
+"./img/shampoo slide banner.jpg" alt="Slide 3">
+		</div>
+		<div class="slide fade">
+			<img src=
+"./img/hair oil slide banner.jpg" alt="Slide 3">
+		</div>
+	</div>
+    </section>
+
+    <!-- Main Content -->
+    
+         <section class="hero-section"><!-- Discover Section -->
+        <section class="discover-section fade-in-up">
+            <h2 class="section-title">Discover Your Perfect Skin Care Routine</h2>
+            <p class="section-subtitle">From cleansers to serums, find everything you need for healthy, glowing skin</p>
+            
+            <div class="features">
+                <span class="feature-badge">Free Shipping Above ₹499</span>
+                <span class="feature-badge">Easy Returns</span>
+                <span class="feature-badge">Authentic Products</span>
+            </div>
+        </section>
+</section>
+<main class="main-content"></main>        
+<!-- Products Section -->
+        <section class="products-section">
+            <div class="products-header">
+                <span class="products-count">6 products found</span>
+                <select class="sort-dropdown">
+                    <option>Sort by Popularity</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Customer Rating</option>
+                </select>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Worldwide Fashion Collection -->
+        <section class="collections-section">
+            <h2 class="section-title">Worldwide Fashion Collection</h2>
+            <div class="collections-grid" id="collectionsGrid">
+                <!-- Collections will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Latest Collections -->
+        <section class="latest-section">
+            <h2 class="section-title">Latest Worthwhile Collections</h2>
+            <div class="latest-collections" id="latestCollections">
+                <!-- Latest collections will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.</p>
+    </footer>
+
+   
+</body>
+</html>
