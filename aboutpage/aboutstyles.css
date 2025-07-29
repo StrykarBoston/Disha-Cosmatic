@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trending Animations Skin Care</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-  <style>
-    html {
+/* Reset and font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #fdfaf6;
+  color: #2f3e46;
+}
+html {
       scroll-behavior: smooth;
     }
     body {
@@ -335,136 +339,178 @@
       .container { width: 97%; }
       .features, .collections, .products-list { flex-direction: column; gap: 16px; }
     }
-    /* Other styles remain unchanged */
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container nav">
-      <a href="#" class="logo">
-  <img src="./nav logo.png" alt="Disha Logo" style="height:60px;">
-</a>
-      <nav>
-        <div class="menu-toggle" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="nav-links" id="navLinks">
-          <a href="#">Home</a>
-          <a href="/skincare_site/shop.html">Shop</a>
-          <a href="./aboutpage/about.html">About</a>
-          <a href="./contactpage/contact.html">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="container hero">
-      <div class="hero-img">
-        <img src="./2211.i203.039.F.m004.c9.sandalwood_realistic_perfumes_aromatherapy_AD-removebg-preview.png"style="height: 254px;px;" alt="Product Model">
-      </div>
-      <div class="hero-content">
-        <h1 class="hero-title">100% Organic Wrinkle Removing Creams</h1>
-        <p class="hero-desc">
-          Discover your natural beauty with our carefully formulated, organic creams for face and body. Gentle, pure, and always cruelty-free.
-        </p>
-        <div class="features">
-          <div class="feature"><b>Natural</b> Plant-based and toxin-free for gentle care.</div>
-          <div class="feature"><b>Fragrance Free</b> No artificial scents or harsh chemicals.</div>
-          <div class="feature"><b>Allergy Tested</b> Safe for all skin types.</div>
-          <div class="feature"><b>Paraben Free</b> Clean formula with no harmful additives.</div>
-        </div>
-      </div>
-    </section>
-    <section class="container section">
-      <div class="section-title">Worldwide Fashion Collection</div>
-      <div class="collections">
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Soothing Cream">
-          </div>
-          <div class="collection-title">Aloe Herb Soothing Gel</div>
-          <div class="collection-desc">For instant comfort & hydration.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Blush Cream">
-          </div>
-          <div class="collection-title">Natural Face Cream</div>
-          <div class="collection-desc">Daily rejuvenation for soft, glowing skin.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Moisturizer">
-          </div>
-          <div class="collection-title">Hydra Luxe Moisturizer</div>
-          <div class="collection-desc">Long-lasting, lightweight hydration.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-      </div>
-    </section>
-    <section class="container section">
-      <div class="section-title">Latest Worthwhile Collections</div>
-      <div class="products-list">
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="Apricot Balm">
-          </div>
-          <div class="product-title">Apricot Melon Smoothing Balm</div>
-          <div class="product-desc">Softens and refreshes tired skin.</div>
-        </div>
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="BlueHerb">
-          </div>
-          <div class="product-title">BlueHerb SkinClarity Cream</div>
-          <div class="product-desc">Clarity and bright radiance.</div>
-        </div>
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="Cucumber Serum">
-          </div>
-          <div class="product-title">Revitalize Cooling Serum</div>
-          <div class="product-desc">Ultimate cool and smooth finish.</div>
-        </div>
-      </div>
-    </section>
-    <!-- Add more animated, visually rich sections as needed -->
-  </main>
-  <footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
-    &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
-  </footer>
-  <script>
-    // Responsive Mobile Menu
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
+.logo {
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 1.4rem;
+      color: #3a6844;
+      text-decoration: none;
+      transition: color .4s;
+      position: relative;
+      overflow: hidden;
     }
-    // Hide menu on outside click
-    document.body.addEventListener('click', function(e) {
-      const nav = document.querySelector('.nav');
-      if(window.innerWidth<751){
-        const navLinks = document.getElementById('navLinks');
-        if(!nav.contains(e.target)){navLinks.classList.remove('active');}
-      }
-    });
+    .logo::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg,#71d37c,#4caf50);
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.55,.06,.68,.19);
+    }
+    .logo:hover::after {
+      transform: scaleX(1);
+    }
 
-    // Scroll-reveal animation
-    const animEls = document.querySelectorAll('.animate');
-    if('IntersectionObserver'in window){
-      const obs = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-            obs.unobserve(entry.target);
-          }
-        });
-      },{threshold:.11});
-      animEls.forEach(el=>obs.observe(el));
-    } else {
-      animEls.forEach(el=>el.classList.add('visible'));
+    .nav-links a {
+      color: #333;
+      text-decoration: none;
+      transition: color .2s;
+      position:relative;
     }
-  </script>
-</body>
-</html>
+    .nav-links a::after {
+      content:"";
+      display:block;
+      height:2px;
+      width:0;
+      background: #79e7a9;
+      transition:.3s;
+      position:absolute;
+      bottom:-3px; left:0;
+    }
+    .nav-links a:hover { color: #6ba368;}
+    .nav-links a:hover::after { width:100%; }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      width: 24px;
+      height: 3px;
+      background: #3a6844;
+      border-radius: 2px;
+      display: block;
+      transition: all .4s;
+    }
+    @media (max-width: 750px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        right: 4vw;
+        top: 56px;
+        background: #fff;
+        padding: 20px 24px;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 14px;
+        box-shadow: 0 8px 32px rgba(80, 120, 80, 0.12);
+      }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+/* Header */
+.hero {
+  background: url('images/farm1.jpg') no-repeat center center/cover;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.3em;
+}
+
+/* About */
+.about-section,
+.why-section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.about-section h2,
+.why-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #4a7c59;
+}
+.about-section p {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+/* Why Choose Us */
+.why-section ul {
+  list-style: none;
+}
+.why-section li {
+  background: #e0f3e0;
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-left: 5px solid #4a7c59;
+  font-weight: 500;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
+.gallery img {
+  width: 300px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Footer */
+.footer {
+  background:#f5f3ee;
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+.footer form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer input,
+.footer textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+}
+.footer button {
+  background: #4a7c59;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.footer p {
+  background:#f5f3ee; 
+  color:#6a7c60;
+  padding:5px 0;
+  border-radius:00.2em;
+  text-align:center; 
+  font-size:0.98rem; 
+  margin-top:0px;
+  margin-bottom: 0px;
+}
