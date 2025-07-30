@@ -1,0 +1,5 @@
+# backend/requirements.txt
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.3
+Flask-Cors==3.0.10
+SQLAlchemy==2.0.15
