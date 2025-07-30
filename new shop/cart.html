@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart - Disha Skin Care</title>
+    <link rel="stylesheet" href="./shopstyle.css"> <!-- Re-use main shop styles for consistency -->
+    <link rel="stylesheet" href="./cartstyle.css"> <!-- New cart-specific styles -->
+</head>
+<body>
+    <!-- Header (Copy from shop.html for consistent navigation) -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="./shop.html" class="logo">
+                <img src="./img/nav logo.png" alt="Disha Logo" style="height: 41px;">
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="./shop.html#categories">Categories</a></li>
+                <li><a href="./shop.html#soap">Soap</a></li>
+                <li><a href="./shop.html#shampoo">Shampoo</a></li>
+                <li><a href="./shop.html#hair-oil">Hair Oil</a></li>
+                <li><a href="./shop.html#beauty">Beauty</a></li>
+            </ul>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for...">
+            </div>
+
+            <div class="user-actions">
+                <button class="sign-in-btn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>Sign In</button>
+                <div class="cart-icon" onclick="window.location.href='./cart.html'">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-main-content">
+        <section class="cart-section">
+            <h2 class="section-title">Your Shopping Bag</h2>
+            <div id="cartItemsContainer" class="cart-items-container">
+                <!-- Cart items will be loaded here by JavaScript -->
+                <p class="empty-cart-message">Your cart is empty.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">₹0.00</span>
+                </div>
+                <button id="checkoutBtn" class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Copy from shop.html for consistency) -->
+    <footer class="footer">
+        <p>&copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.</p>
+    </footer>
+
+    <script src="./shopscript.js"></script> <!-- Re-use for mobile menu, cart count, etc. -->
+    <script src="./cartscript.js"></script> <!-- New cart-specific logic -->
+</body>
+</html>
