@@ -1,31 +1,64 @@
-# backend/admin_panel.py
+# DISHA-COSMATIC/new shop/backend/admin_panel.py
+
 import os
 from datetime import datetime
 from app import app, db # Import app and db from your Flask application
-from models import Product, Category # Import your models
+from models import Product, Category, ContactSubmission # NEW: Import ContactSubmission
 
 # Path to the dummy image for new products if no image URL is provided
-# IMPORTANT: Ensure this path is correct relative to your 'shop.html'
-# For example, if your 'img' folder is next to 'shop.html', use './img/default_product.jpg'
-DEFAULT_IMAGE_URL = './img/default_product.jpg' # You might want to create this image or change it
+DEFAULT_IMAGE_URL = './img/default_product.jpg' # Make sure this path is correct from project root
 
 
 def clear_screen():
-    # Clears the terminal screen for a cleaner interface
-    #os.system('cls' if os.name == 'nt' else 'clear')
-    pass
+    # os.system('cls' if os.name == 'nt' else 'clear') # Keep this commented out for now
+    pass # Add pass if nothing else is here
 
+# NEW: Main Menu Update
 def main_menu():
-    #clear_screen()
+    # clear_screen() # Keep this commented out for now
     print("\n--- Disha Skin Care Admin Panel ---")
     print("1. Manage Products")
     print("2. Manage Categories")
-    print("3. Exit")
+    print("3. View Contact Submissions") # NEW OPTION
+    print("4. Exit") # Exit option number changed
     choice = input("Enter your choice: ")
     return choice
 
+
+# NEW: Contact Submissions Menu
+def contact_submissions_menu():
+    # clear_screen()
+    print("\n--- Contact Submissions Management ---")
+    print("1. List All Submissions")
+    print("2. Back to Main Menu")
+    choice = input("Enter your choice: ")
+    return choice
+
+# NEW: List Contact Submissions
+def list_contact_submissions():
+    # clear_screen()
+    print("\n--- All Contact Submissions ---")
+    submissions = ContactSubmission.query.order_by(ContactSubmission.submitted_at.desc()).all()
+    if not submissions:
+        print("No contact submissions found.")
+        return
+
+    for s in submissions:
+        print(f"ID: {s.id}")
+        print(f"  Name: {s.name}")
+        print(f"  Email: {s.email}")
+        print(f"  Mobile: {s.mobile}")
+        print(f"  Country: {s.country}")
+        print(f"  State: {s.state or 'N/A'}")
+        print(f"  Company: {s.company or 'N/A'}")
+        print(f"  Message: {s.message or 'N/A'}")
+        print(f"  Submitted At: {s.submitted_at.strftime('%Y-%m-%d %H:%M:%S')}")
+        print("-" * 30)
+    input("\nPress Enter to continue...")
+
+
 def product_menu():
-    #clear_screen()
+    # clear_screen()
     print("\n--- Product Management ---")
     print("1. List All Products")
     print("2. Add New Product")
@@ -35,18 +68,8 @@ def product_menu():
     choice = input("Enter your choice: ")
     return choice
 
-def category_menu():
-    #clear_screen()
-    print("\n--- Category Management ---")
-    print("1. List All Categories")
-    print("2. Add New Category")
-    print("3. Delete Category")
-    print("4. Back to Main Menu")
-    choice = input("Enter your choice: ")
-    return choice
-
 def list_products():
-    clear_screen()
+    # clear_screen()
     print("\n--- All Products ---")
     products = Product.query.all()
     if not products:
@@ -69,7 +92,7 @@ def list_products():
     input("\nPress Enter to continue...")
 
 def add_product():
-    clear_screen()
+    # clear_screen()
     print("\n--- Add New Product ---")
     name = input("Product Name: ")
     description = input("Description: ")
@@ -144,7 +167,7 @@ def add_product():
     input("\nPress Enter to continue...")
 
 def edit_product():
-    clear_screen()
+    # clear_screen()
     print("\n--- Edit Product ---")
     list_products_simple() # Show a simple list of products
     product_id = input("Enter the ID of the product to edit: ")
@@ -199,7 +222,17 @@ def edit_product():
     else:
         print("Invalid Category ID. Keeping current category.")
 
-    product.image_url = input(f"Image URL ({product.image_url or 'N/A'}): ") or product.image_url
+    image_url = input(f"Image URL ({product.image_url or 'N/A'}): ") or product.image_url
+    # Ensure image_url is properly updated if user provides a new one or keeps existing
+    # This part assumes you'll check if the provided path is relative to the project root
+    # If image_url starts with '.' make sure it's relative from the web root
+    if image_url.startswith('./'):
+        product.image_url = image_url
+    elif image_url.startswith('/'): # Assume absolute path from web root
+        product.image_url = image_url
+    else: # Assume relative path from web root if no slash (e.g. "myimage.jpg")
+        product.image_url = './img/' + image_url # Prepend img/ if it's just a filename (common use case)
+
 
     while True:
         rating_input = input(f"Rating ({product.rating}): ")
@@ -243,7 +276,7 @@ def edit_product():
     input("\nPress Enter to continue...")
 
 def delete_product():
-    clear_screen()
+    # clear_screen()
     print("\n--- Delete Product ---")
     list_products_simple() # Show a simple list of products
     product_id = input("Enter the ID of the product to delete: ")
@@ -282,8 +315,18 @@ def list_products_simple():
         print(f"{p.id} - {p.name}")
     print("-" * 30)
 
+def category_menu():
+    # clear_screen()
+    print("\n--- Category Management ---")
+    print("1. List All Categories")
+    print("2. Add New Category")
+    print("3. Delete Category")
+    print("4. Back to Main Menu")
+    choice = input("Enter your choice: ")
+    return choice
+
 def list_categories():
-    clear_screen()
+    # clear_screen()
     print("\n--- All Categories ---")
     categories = Category.query.all()
     if not categories:
@@ -297,7 +340,7 @@ def list_categories():
     input("\nPress Enter to continue...")
 
 def add_category():
-    clear_screen()
+    # clear_screen()
     print("\n--- Add New Category ---")
     name = input("Category Name: ")
     description = input("Category Description (optional): ") or None
@@ -313,7 +356,7 @@ def add_category():
     input("\nPress Enter to continue...")
 
 def delete_category():
-    clear_screen()
+    # clear_screen()
     print("\n--- Delete Category ---")
     list_categories_simple() # Show a simple list of categories
     category_id = input("Enter the ID of the category to delete: ")
@@ -364,12 +407,15 @@ def list_categories_simple():
 
 
 if __name__ == '__main__':
+    # print("Admin: Step 2: Entering __main__ block.") # Keep your debug prints
     with app.app_context():
-        db.create_all() # Ensure tables are created for admin script to interact with
+        # print("Admin: Step 3: Entering app context for database operations in admin.") # Keep your debug prints
+        db.create_all() # Ensure tables are created for admin script
 
+        # print("Admin: Step 4: Database check complete. Starting main loop.") # Keep your debug prints
         while True:
             main_choice = main_menu()
-            if main_choice == '1':
+            if main_choice == '1': # Manage Products
                 while True:
                     product_choice = product_menu()
                     if product_choice == '1':
@@ -383,9 +429,9 @@ if __name__ == '__main__':
                     elif product_choice == '5':
                         break
                     else:
-                        print("Invalid choice. Please try again.")
+                        print("Admin: Invalid choice. Please try again.")
                         input("Press Enter to continue...")
-            elif main_choice == '2':
+            elif main_choice == '2': # Manage Categories
                 while True:
                     category_choice = category_menu()
                     if category_choice == '1':
@@ -397,11 +443,23 @@ if __name__ == '__main__':
                     elif category_choice == '4':
                         break
                     else:
-                        print("Invalid choice. Please try again.")
+                        print("Admin: Invalid choice. Please try again.")
                         input("Press Enter to continue...")
-            elif main_choice == '3':
-                print("Exiting Admin Panel. Goodbye!")
+            elif main_choice == '3': # NEW: View Contact Submissions
+                while True:
+                    contact_choice = contact_submissions_menu()
+                    if contact_choice == '1':
+                        list_contact_submissions()
+                    elif contact_choice == '2':
+                        break
+                    else:
+                        print("Admin: Invalid choice. Please try again.")
+                        input("Press Enter to continue...")
+            elif main_choice == '4': # NEW: Exit option number changed
+                print("Admin: Step 5: Exiting Admin Panel. Goodbye!")
                 break
             else:
-                print("Invalid choice. Please try again.")
+                print("Admin: Invalid choice. Please try again.")
                 input("Press Enter to continue...")
+
+# print("Admin: Script finished execution.") # Keep your debug prints
