@@ -444,3 +444,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     });
 });
+
+
+const signInBtn = document.querySelector('.sign-in-btn');
+if (signInBtn) {
+    signInBtn.addEventListener('click', () => {
+        window.location.href = '../signup/signup.html';
+    });
+}

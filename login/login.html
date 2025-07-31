@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no"/>
+  <title>Trending Animations Skin Care</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./login.css" />
+  <script src="./login.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <img src="/img/nav logo.png" alt="Disha Logo" style="height:60px;">
+      </a>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="/index.html">Home</a>
+          <a href="/new shop/shop.html">Shop</a>
+          <a href="/aboutpage/about.html">About</a>
+          <a href="/contactpage/contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <div class="login-container">
+      <h2>ShopEasy Login</h2>
+      <form action="/login" method="POST">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+        <p class="signup-link">Don't have an account? <a href="/signup/signup.html">Sign up</a></p>
+      </form>
+    </div>
+  </header>
+  <footer class="footer" style=" color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
+    &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+  </footer>
+</body>
+</html>
