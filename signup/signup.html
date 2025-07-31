@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - My Awesome Shop</title>
+    <link rel="stylesheet" href="./signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="./signup.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+      <a href="#" class="logo">
+        <img src="/img/nav logo.png" alt="Disha Logo" style="height:60px;">
+      </a>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="/index.html">Home</a>
+          <a href="/new shop/shop.html">Shop</a>
+          <a href="/aboutpage/about.html">About</a>
+          <a href="/contactpage/contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    </header>
+    <div class="signup-container">
+        <div class="signup-header">
+            <img src="/img/nav logo.png" alt="Shop Logo"  style="height: 60px;">
+            <h2>Create Your Account</h2>
+            <p>Join us to unlock exclusive deals and a seamless shopping experience!</p>
+        </div>
+        <form id="signupForm" class="signup-form" novalidate>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="John Doe" required aria-describedby="fullNameError">
+                <div class="error-message" id="fullNameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required aria-describedby="emailError">
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Minimum 8 characters" required aria-describedby="passwordError">
+                <div class="error-message" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required aria-describedby="confirmPasswordError">
+                <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required aria-describedby="termsError">
+                <label for="terms">I agree to the <a href="#" target="_blank" rel="noopener noreferrer">Terms & Conditions</a></label>
+                <div class="error-message" id="termsError"></div>
+            </div>
+
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+
+        <div class="signup-footer">
+            <p>Already have an account? <a href="/login/login.html">Log In</a></p>
+            <div class="social-signup">
+                <p>- OR -</p>
+                <button class="social-btn google-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png" alt="Google Logo">
+                    Sign Up with Google
+                </button>
+                <button class="social-btn facebook-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+                    Sign Up with Facebook
+                </button>
+            </div>
+        </div>
+    </div>
+<footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
+    &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+  </footer>
+ 
+</body>
+</html>
