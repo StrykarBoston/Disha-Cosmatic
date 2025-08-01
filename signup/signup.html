@@ -9,6 +9,8 @@
    
 </head>
 <body>
+
+    <!-- header section -->
     <header>
         <div class="container nav">
       <a href="#" class="logo">
@@ -27,12 +29,19 @@
       </nav>
     </div>
     </header>
+
+
+    <!-- signup container -->
     <div class="signup-container">
+
         <div class="signup-header">
             <img src="/img/nav logo.png" alt="Shop Logo"  style="height: 60px;">
             <h2>Create Your Account</h2>
             <p>Join us to unlock exclusive deals and a seamless shopping experience!</p>
         </div>
+
+
+        <!-- form  -->
         <form id="signupForm" class="signup-form" novalidate>
             <div class="form-group">
                 <label for="fullName">Full Name</label>
@@ -40,9 +49,10 @@
                 <div class="error-message" id="fullNameError"></div>
             </div>
 
+
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required aria-describedby="emailError">
+                <input type="email" id="email" name="email" placeholder="johndoe@example.com" required aria-describedby="emailError">
                 <div class="error-message" id="emailError"></div>
             </div>
 
@@ -67,26 +77,36 @@
             <button type="submit" class="signup-button">Sign Up</button>
         </form>
 
+
         <div class="signup-footer">
+
             <p>Already have an account? <a href="/login/login.html">Log In</a></p>
             <div class="social-signup">
+                
                 <p>- OR -</p>
+
                 <button class="social-btn google-btn">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png" alt="Google Logo">
                     Sign Up with Google
                 </button>
+
                 <button class="social-btn facebook-btn">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
                     Sign Up with Facebook
                 </button>
+
             </div>
         </div>
+
     </div>
+
+
+<!-- footer section -->
 <footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
     &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
-  </footer>
+</footer>
 
-   <script src="./signup.js"></script> <!-- was added here -->
+<script src="./signup.js"></script> <!-- was added here -->
  
 </body>
 </html>
