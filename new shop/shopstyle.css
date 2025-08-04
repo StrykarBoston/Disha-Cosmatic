@@ -525,6 +525,7 @@ body {
         width: 100%;
         padding: 1rem;
         gap: 1rem;
+        
     }
     
     /* Logo: let it size automatically and appear first */
@@ -542,6 +543,7 @@ body {
         width: auto;
         margin-left: 0;
         margin-top: 0;
+        align-items: center;
     }
     
     /* Mobile Menu Button: Position it on the right */
@@ -556,12 +558,12 @@ body {
     .search-container {
         order: 4; /* Push to the next line */
         width: 100%; 
-        margin-left: 0;
+        margin-left: 10px;
         margin-top: 0.5rem; /* Add some space above */
     }
     
     .search-box {
-        width: 100%;
+        width: 50%;
     }
 
     /* Ensure the collapsible nav menu is ordered last and hidden by default */
@@ -692,16 +694,18 @@ border: none;
 .floating-menu-toggle {
     display: none;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 8px;
+    right: 8px;
     z-index: 1002;
     background: white;
     border: none;
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    padding: 6px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
     transition: all 0.3s ease;
+    
 }
 
 .floating-menu-toggle:hover {
@@ -715,14 +719,16 @@ border: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .floating-menu-toggle .menu-icon span {
-    width: 100%;
+     width: 24px;
     height: 3px;
-    background: #333;
+    background: #3a6844;
     border-radius: 2px;
-    transition: all 0.3s ease;
+    display: block;
+    transition: all .4s;
 }
 
 .floating-menu-toggle.active .menu-icon span:nth-child(1) {
