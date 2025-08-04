@@ -15,7 +15,7 @@
     @media(max-width:768px){.sidebar{flex-direction:row;flex-wrap:wrap;justify-content:center;width:100%;padding:0.5rem;gap:0.5rem;}.content{padding:0.5rem;}}
     
     /* General styles */
-     html {
+  html {
       scroll-behavior: smooth;
     }
     body {
@@ -24,8 +24,6 @@
       margin: 0;
       color: #333;
       line-height: 1.6;
-      padding: 10px;
-      text-align: left;
     }
     header {
       background: #fff;
@@ -111,8 +109,8 @@
       display: block;
       transition: all .4s;
     }
-
-   /* SCROLL/ON-REVEAL Anims w. Intersection Observer */
+ 
+ /* SCROLL/ON-REVEAL Anims w. Intersection Observer */
     .animate { opacity: 0; transform: translateY(80px) scale(.97);}
     .animate.visible { opacity: 1; transform: none; transition:.9s cubic-bezier(.8,-0.05,.36,1.21);}
     /* Responsive styles */
@@ -142,7 +140,7 @@
       .features, .collections, .products-list { flex-direction: column; gap: 16px; }
     }
     /* Other styles remain unchanged */
-    
+     
 
     /* My order styles */
 * {
@@ -311,12 +309,6 @@ h1 {
 
 /* browse page styles */
 
-    .container.Browse {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
     h2 {
       margin-bottom: 5px;
     }
@@ -394,12 +386,6 @@ h1 {
 
 
     /* Wishlist styles */
-
-   .containerwish{
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
     h3 {
       margin-bottom: 10px;
     }
