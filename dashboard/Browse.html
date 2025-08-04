@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Herbal Wellness Shop</title>
+  <link rel="stylesheet" href="./dashboard.css" />
+  
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+  <img src="./img/nav logo.png" alt="Disha Logo" style="height:60px;">
+</a>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="./overview.html">Overview</a>
+          <a href="./myorder.html">My Orders</a>
+          <a href="#">Browse Products</a>
+          <a href="./Wishlist.html">Wishlist</a>
+          <a href="./profile.html">Profile</a>
+          <a href="./rewards.html">Rewards</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="container.Browse">
+    <h2>Browse Products</h2>
+    <p class="subtitle">Discover our premium herbal wellness products</p>
+
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card" data-id="101">
+        <div class="product-image" style="background-color: #2ECC71;">🍃</div>
+        <div class="product-information">
+          <h3>Organic Turmeric</h3>
+          <p>Premium quality turmeric with curcumin for inflammation support</p>
+          <p class="productprice">$29.99</p>
+        </div>
+        <button class="add-button" onclick="addToCart(this)">Add to Cart</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card" data-id="102">
+        <div class="product-image" style="background-color: #A040FF;">🌙</div>
+        <div class="product-information">
+          <h3>Lavender Sleep Aid</h3>
+          <p>Natural lavender extract for better sleep and relaxation</p>
+          <p class="productprice">$19.99</p>
+        </div>
+        <button class="add-button" onclick="addToCart(this)">Add to Cart</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card" data-id="103">
+        <div class="product-image" style="background-color: #3498DB;">🌸</div>
+        <div class="product-information">
+          <h3>Green Tea Extract</h3>
+          <p>Powerful antioxidants for immune system support</p>
+          <p class="productprice">$24.99</p>
+        </div>
+        <button class="add-button" onclick="addToCart(this)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
+   &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+  <script src="./dashboard.js"></script>
+</body>
+</html>

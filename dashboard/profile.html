@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Profile - Shopping Platform</title>
+    <link rel="stylesheet" href="./dashboard.css" />
+</head>
+
+<body>
+      <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+  <img src="./img/nav logo.png" alt="Disha Logo" style="height:60px;">
+</a>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="./overview.html">Overview</a>
+          <a href="./myorder.html">My Orders</a>
+          <a href="./Browse.html">Browse Products</a>
+          <a href="./Wishlist.html">Wishlist</a>
+          <a href="#">Profile</a>
+          <a href="./rewards.html">Rewards</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+    <h1>My Profile</h1>
+    <p>Manage your account information and preferences</p>
+
+    <div class="container">
+
+        <!-- Personal Information Form -->
+        <form class="form-block" id="profileForm">
+            <h2>Personal Information</h2>
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" value="John Doe" required />
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" value="john.doe@email.com" required />
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" value="+1 (555) 123-4567" required />
+
+            <button type="submit">Update Profile</button>
+            <div id="profileResponse" class="response-message"></div>
+        </form>
+
+        <!-- Wellness Preferences Form -->
+        <form class="form-block" id="preferencesForm">
+            <h2>Wellness Preferences</h2>
+
+            <fieldset class="checkbox-group" style="border:none; padding:0;">
+                <legend style="font-weight:600; margin-bottom:10px;">Health Goals</legend>
+                <label><input type="checkbox" name="goals" value="Immune Support" checked /> Immune Support</label>
+                <label><input type="checkbox" name="goals" value="Stress Relief" checked /> Stress Relief</label>
+                <label><input type="checkbox" name="goals" value="Better Sleep" /> Better Sleep</label>
+                <label><input type="checkbox" name="goals" value="Digestive Health" /> Digestive Health</label>
+            </fieldset>
+
+            <label for="delivery">Preferred Delivery</label>
+            <select id="delivery" name="delivery" required>
+                <option value="Monthly Subscription" selected>Monthly Subscription</option>
+                <option value="One-Time Purchase">One-Time Purchase</option>
+                <option value="Quarterly Subscription">Quarterly Subscription</option>
+            </select>
+
+            <button type="submit">Save Preferences</button>
+            <div id="preferencesResponse" class="response-message"></div>
+        </form>
+    </div>
+    <footer class="footer"
+        style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
+        &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+        <script src="./dashboard.js"></script>
+</body>
+
+</html>

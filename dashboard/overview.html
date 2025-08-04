@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disha Skin Care - Natural Herbal Products</title>
+    <link rel="stylesheet" href="./dashboard.css">
+    </head>
+<body>
+    <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+  <img src="./img/nav logo.png" alt="Disha Logo" style="height:60px;">
+</a>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#">Overview</a>
+          <a href="./myorder.html">My Orders</a>
+          <a href="./Browse.html">Browse Products</a>
+          <a href="./Wishlist.html">Wishlist</a>
+          <a href="./profile.html">Profile</a>
+          <a href="./rewards.html">Rewards</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="main">
+    <div class="content">
+      <h2>Welcome back, John! 🌱</h2>
+      <div class="stats" id="stats"></div>
+      <div class="orders">
+        <h3>Recent Orders</h3>
+        <div id="orders"></div>
+      </div>
+      <div class="recommended">
+        <h3>Recommended for You</h3>
+        <div id="recommendations"></div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
+    &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+  </footer>
+    <script src="./dashboard.js"></script>
+</body>
+</html>

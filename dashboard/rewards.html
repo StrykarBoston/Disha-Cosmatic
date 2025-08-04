@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wellness Rewards</title>
+  <link rel="stylesheet" href="./dashboard.css"/>
+</head>
+<body>
+    <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+  <img src="./img/nav logo.png" alt="Disha Logo" style="height:60px;">
+</a>
+      <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="./overview.html">Overview</a>
+          <a href="./myorder.html">My Orders</a>
+          <a href="./Browse.html">Browse Products</a>
+          <a href="./Wishlist.html">Wishlist</a>
+          <a href="./profile.html">Profile</a>
+          <a href="#">Rewards</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+   <h1>Wellness Rewards</h1>
+      <p>Earn points and unlock exclusive benefits</p>
+
+    <section class="points-tier">
+      <div class="tier-box">
+        <h2>Premium Member</h2>
+        <p>You have <strong>1,250</strong> wellness points</p>
+        <div class="progress-bar">
+          <div class="progress" style="width: 62.5%"></div>
+        </div>
+        <p class="progress-text">1,250 / 2,000</p>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <section class="rewards">
+        <h3>Available Rewards</h3>
+        <div class="reward-card">
+          <div class="reward-info">
+            <span class="reward-icon">💸</span>
+            <div>
+              <p><strong>15% Off Next Order</strong></p>
+              <p>500 points required</p>
+            </div>
+          </div>
+          <button class="redeem-btn">Redeem</button>
+        </div>
+
+        <div class="reward-card">
+          <div class="reward-info">
+            <span class="reward-icon">🚚</span>
+            <div>
+              <p><strong>Free Shipping</strong></p>
+              <p>300 points required</p>
+            </div>
+          </div>
+          <button class="redeem-btn">Redeem</button>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <section class="earn-points">
+          <h3>Earn More Points</h3>
+          <ul>
+            <li>Make a purchase <span>+10 pts/$1</span></li>
+            <li>Write a review <span>+50 pts</span></li>
+            <li>Refer a friend <span>+200 pts</span></li>
+            <li>Monthly subscription <span>+100 pts</span></li>
+          </ul>
+        </section>
+
+        <section class="recent-activity">
+          <h3>Recent Activity</h3>
+          <ul>
+            <li>
+              <strong>Order #12345</strong><br />
+              March 15, 2024 <span>+299 pts</span>
+            </li>
+            <li>
+              <strong>Product Review</strong><br />
+              March 10, 2024 <span>+50 pts</span>
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+  </div>
+<footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
+   &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+  <script src="./dashboard.js"></script>
+</body>
+</html>
