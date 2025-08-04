@@ -12,7 +12,6 @@
             <a href="./shop.html" class="logo">
                 <img src="./img/nav logo.png" alt="Disha Logo" style="height: 41px;">
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
             
             <ul class="nav-menu" id="navMenu">
                 <li><a href="../index.html">Home</a></li>
@@ -24,9 +23,52 @@
                     <a href="#" class="dropbtn">Categories ▼</a>
                     <div class="dropdown-content" id="categoriesDropdown">
                         <a href="#" data-category="All">All Products</a>
+                        <a href="#" data-category="All">Soap</a>
+                        <a href="#" data-category="All">shampoo</a>
+                        <a href="/Product-Page/p1.html" data-category="All">Hair Oil</a>
+                        <a href="#" data-category="All">pain relief oil</a>
                         </div>
                 </li>
             </ul>
+
+            <!-- Floating Mobile Menu Toggle -->
+<button class="floating-menu-toggle" id="floatingMenuToggle">
+    <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</button>
+
+<!-- Floating Dropdown Menu -->
+<div class="floating-dropdown" id="floatingDropdown">
+    <div class="floating-dropdown-content">
+        <a href="#overview">
+            <span class="menu-icon-item">📊</span>
+            Overview
+        </a>
+        <a href="#orders">
+            <span class="menu-icon-item">📦</span>
+            My Orders
+        </a>
+        <a href="#browse">
+            <span class="menu-icon-item">🛍️</span>
+            Browse Products
+        </a>
+        <a href="#wishlist">
+            <span class="menu-icon-item">❤️</span>
+            Wishlist
+        </a>
+        <a href="#profile">
+            <span class="menu-icon-item">👤</span>
+            Profile
+        </a>
+        <a href="#rewards">
+            <span class="menu-icon-item">🎁</span>
+            Rewards
+        </a>
+    </div>
+</div>
 
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="Search for...">
@@ -40,10 +82,13 @@
                 <div class="cart-icon" onclick="window.location.href='./cart.html'">
                     🛒
                     <span class="cart-count" id="cartCount">0</span>
-                </div>
-            </div>
+                <!-- </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div> -->
         </nav>
     </header>
+
+    
 
     <div class="slideshow-container">
         <div class="slide fade">

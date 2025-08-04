@@ -8,20 +8,30 @@
     <link rel="stylesheet" href="./cartstyle.css"> <!-- New cart-specific styles -->
 </head>
 <body>
-    <!-- Header (Copy from shop.html for consistent navigation) -->
-    <header class="header">
+    <!-- Header  -->
+   <header class="header">
         <nav class="nav-container">
             <a href="./shop.html" class="logo">
-                <img src="./img/nav logo.png" alt="Disha Logo" style="height: 41px;">
+                <img src="/img/nav logo.png" alt="Disha Logo" style="height: 41px;">
             </a>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-
+            
             <ul class="nav-menu" id="navMenu">
-                <li><a href="./shop.html#categories">Categories</a></li>
-                <li><a href="./shop.html#soap">Soap</a></li>
-                <li><a href="./shop.html#shampoo">Shampoo</a></li>
-                <li><a href="./shop.html#hair-oil">Hair Oil</a></li>
-                <li><a href="./shop.html#beauty">Beauty</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../new shop/shop.html">Shop</a></li>
+                <li><a href="../aboutpage/about.html">About</a></li>
+                <li><a href="../contactpage/contact.html">Contact</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categories ▼</a>
+                    <div class="dropdown-content" id="categoriesDropdown">
+                        <a href="#" data-category="All">All Products</a>
+                        <a href="#" data-category="All">Soap</a>
+                        <a href="#" data-category="All">shampoo</a>
+                        <a href="#" data-category="All">Hair Oil</a>
+                        <a href="#" data-category="All">pain relief oil</a>
+                        </div>
+                </li>
             </ul>
 
             <div class="search-container">
@@ -32,8 +42,8 @@
                 <button class="sign-in-btn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
-                </svg>Sign In</button>
-                <div class="cart-icon" onclick="window.location.href='./cart.html'">
+                  </svg>Sign In</button>
+                <div class="cart-icon" onclick="window.location.href='../new shop/cart.html'">
                     🛒
                     <span class="cart-count" id="cartCount">0</span>
                 </div>

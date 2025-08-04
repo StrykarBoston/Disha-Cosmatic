@@ -96,6 +96,7 @@ body {
     justify-content: center;
     position: relative;
     cursor: pointer;
+    
 }
 
 .cart-count {
@@ -512,58 +513,70 @@ body {
 }
 
 /* --- NEW MOBILE RESPONSIVE STYLES --- */
+/* --- CORRECTED MOBILE RESPONSIVE STYLES --- */
 @media (max-width: 768px) {
-    /* Main container settings for a stacked layout */
+    /* Main container: use a row-based layout to align items horizontally */
     .nav-container {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-direction: row; /* Changed from column to row */
+        flex-wrap: wrap; /* Allows items to wrap to a new line */
+        justify-content: space-between; /* Pushes logo left, actions right */
+        align-items: center; /* Aligns items vertically centered */
+        width: 100%;
         padding: 1rem;
         gap: 1rem;
     }
     
+    /* Logo: let it size automatically and appear first */
     .nav-container .logo {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-    }
-    .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
+        order: 1; /* First item on the top row */
     }
 
-    /* Stack the search bar and user actions vertically */
-    .search-container, .user-actions {
-        width: 90%;
+    /* User Actions (Sign In, Cart): Group with other controls on the right */
+    .user-actions {
+        display: flex; 
+        order: 3; /* Place on the right side of the top row */
+        width: auto;
         margin-left: 0;
         margin-top: 0;
-        justify-content: space-between;
+    }
+    
+    /* Mobile Menu Button: Position it on the right */
+    .mobile-menu-btn {
+        display: block;
+        position: static; /* Remove absolute positioning to keep it in the flow */
+        order: 2; /* Place between logo and user actions */
+        margin-left: auto; /* Push to the right side */
+    }
+
+    /* Search Container: Force to the next line by taking full width */
+    .search-container {
+        order: 4; /* Push to the next line */
+        width: 100%; 
+        margin-left: 0;
+        margin-top: 0.5rem; /* Add some space above */
     }
     
     .search-box {
         width: 100%;
     }
-    
-    .user-actions {
-        order: 3;
-        width: 90%;
-        margin-top: 0.5rem;
-    }
-    
-    .sign-in-btn {
-        width: auto;
-    }
 
+    /* Ensure the collapsible nav menu is ordered last and hidden by default */
     .nav-menu {
         display: none;
         width: 100%;
+        order: 5; 
         position: static;
         background: none;
         box-shadow: none;
         padding: 0;
         gap: 0;
     }
+
+    /* Styles for when the mobile menu is active/open */
     .nav-menu.active {
         display: flex;
         flex-direction: column;
@@ -571,6 +584,7 @@ body {
         gap: 0.5rem;
     }
 
+    /* Keep other mobile styles below this point */
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -590,21 +604,22 @@ body {
     .collections-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
+    
+    @media (max-width: 480px) {
+        .main-content {
+            padding: 0 1rem;
+        }
+
+        .hero-section {
+            padding: 2rem 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+        }
+    }
 }
 
-@media (max-width: 480px) {
-    .main-content {
-        padding: 0 1rem;
-    }
-
-    .hero-section {
-        padding: 2rem 1rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-}
 
 /* Animations */
 @keyframes fadeInUp {
@@ -667,4 +682,146 @@ border: none;
     justify-content: center;
     color: white;
     font-size: 1.2rem;
+}
+
+
+
+
+
+/* FLOATING MOBILE MENU STYLES */
+.floating-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.floating-menu-toggle:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.floating-menu-toggle .menu-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.floating-menu-toggle .menu-icon span {
+    width: 100%;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.floating-menu-toggle.active .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.floating-menu-toggle.active .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.floating-menu-toggle.active .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.floating-dropdown {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    z-index: 1001;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.floating-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.floating-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 24px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.1);
+}
+
+.floating-dropdown-content {
+    position: relative;
+    z-index: 1;
+    padding: 12px 0;
+}
+
+.floating-dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+    gap: 12px;
+}
+
+.floating-dropdown-content a:hover {
+    background-color: #f8f9fa;
+    color: #4CAF50;
+}
+
+.floating-dropdown-content .menu-icon-item {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+/* Update mobile responsive section */
+@media (max-width: 768px) {
+    /* Show floating menu toggle on mobile */
+    .floating-menu-toggle {
+        display: block;
+    }
+    
+    /* Hide the old mobile menu button */
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-dropdown {
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+    }
+    
+    .floating-menu-toggle {
+        right: 15px;
+    }
 }
