@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h1 class="dashboard-title"><img src="../../img/nav logo.png" alt="Disha Logo" style="height:60px;"></h1>
+            <nav class="dashboard-nav">
+                <a href="#overview" class="nav-item active">Overview</a>
+                <a href="#products" class="nav-item">Products</a>
+                <a href="#orders" class="nav-item">Orders</a>
+                <a href="#customers" class="nav-item">Customers</a>
+                <a href="#analytics" class="nav-item">Analytics</a>
+                <a href="#settings" class="nav-item">Settings</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <input type="search" placeholder="Search..." class="search-bar">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="Admin" class="user-avatar">
+                    <span>Admin Name</span>
+                </div>
+            </header>
+            <section id="overview" class="dashboard-section">
+                <h2>Welcome, Admin!</h2>
+                <p>Here's a quick overview of your store's performance.</p>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-value">₹1,25,000</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <p class="stat-value" id="total-orders-count">...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>New Customers</h3>
+                        <p class="stat-value" id="new-customers-count">...</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Orders</h3>
+                        <p class="stat-value">12</p>
+                    </div>
+                </div>
+            </section>
+            <section id="products" class="dashboard-section" style="display: none;">
+                <h2>All Products</h2>
+                <p>A comprehensive list of all products in your store.</p>
+                <div class="table-container">
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-list-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="orders" class="dashboard-section" style="display: none;">
+                <h2>Orders</h2>
+                <p>A list of all customer orders.</p>
+                <div class="table-container">
+                    <table class="order-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-list-body">
+                            <!-- Order rows will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="customers" class="dashboard-section" style="display: none;">
+                <h2>Customers</h2>
+                <p>A list of all registered customers.</p>
+                <div class="table-container">
+                    <table class="customer-table">
+                        <thead>
+                            <tr>
+                                <th>Customer ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-list-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="analytics" class="dashboard-section" style="display: none;">
+                <h2>Analytics</h2>
+                </section>
+            <section id="settings" class="dashboard-section" style="display: none;">
+                <h2>Settings</h2>
+                </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

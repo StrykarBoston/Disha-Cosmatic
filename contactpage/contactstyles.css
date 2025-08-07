@@ -20,7 +20,7 @@ body {
   flex: 1;
   min-width: 300px;
   /* Updated img path: relative to the CSS file's location, which is at root, then into img/ */
-  background: url('./img/logo.png') no-repeat center center; 
+  background: url('../img/logo.png') no-repeat center center; 
   background-size: cover;
   height: 550px;
   padding: 20px;
