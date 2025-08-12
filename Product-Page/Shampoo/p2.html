@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hair Oil - Just Herbs</title>
+    <link rel="stylesheet" href="./p2.css">    
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="./shop.html" class="logo">
+                <img src="../../img/nav logo.png" alt="Disha Logo" style="height: 41px;">
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../new shop/shop.html">Shop</a></li>
+                <li><a href="../aboutpage/about.html">About</a></li>
+                <li><a href="../contactpage/contact.html">Contact</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Categories ▼</a>
+                    <div class="dropdown-content" id="categoriesDropdown">
+                        <a href="#" data-category="All">All Products</a>
+                        <a href="#" data-category="All">Soap</a>
+                        <a href="#" data-category="All">shampoo</a>
+                        <a href="#" data-category="All">Hair Oil</a>
+                        <a href="#" data-category="All">pain relief oil</a>
+                        </div>
+                </li>
+            </ul>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for...">
+            </div>
+
+            <div class="user-actions">
+                <button class="sign-in-btn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>Sign In</button>
+                <div class="cart-icon" onclick="window.location.href='../new shop/cart.html'">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Product Section -->
+        <section class="product-section">
+            <!-- Thumbnail Gallery -->
+            <div class="thumbnail-gallery">
+                <div class="thumbnail active">
+                    <img src="../../disha image/DSC_1354.jpg" alt="Product thumbnail 1">
+                </div>
+                <!-- <div class="thumbnail">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRjhGOEY4Ii8+CjxyZWN0IHg9IjE1IiB5PSIxNSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiByeD0iNSIgZmlsbD0iI0Y0QzJBNCIvPgo8L3N2Zz4K" alt="Product thumbnail 2">
+                </div>
+                <div class="thumbnail">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRjhGOEY4Ii8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0iI0RBQjk5NCIvPgo8L3N2Zz4K" alt="Product thumbnail 3">
+                </div> -->
+            </div>
+
+            <!-- Main Product Image -->
+            <div class="main-image">
+                <img src="../../disha image/DSC_1354.jpg" alt=" Hair Oil">
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 class="product-title">Herbal Shampoo</h1>
+                
+                <div class="rating">
+                    <div class="stars">★★★★☆</div>
+                    <span class="rating-text">4.1 | 221 reviews</span>
+                </div>
+
+                <div class="price-section">
+                    <span class="price">MRP ₹477</span>
+                    <span class="original-price">₹540.00</span>
+                </div>
+
+                <div class="size-selector">
+                    <label class="size-label">Size</label>
+                    <div class="size-options">
+                        <button class="size-option active">100 ML</button>
+                        <button class="size-option">200 ML</button>
+                    </div>
+                </div>
+
+                <div class="product-description">
+                    <div class="description-title">Herbal Shampoo. Your hair's Natural care Taker!</div>
+                    <p class="description-text">Roduces: Dandruff, Hairfall, Itchiness. Promotes Hair Growth and Deeply Cleanses
+                    </p>
+                </div>
+
+                <div class="viewing-count">👁 449 people are viewing this product</div>
+
+                <button class="add-to-cart-btn">ADD TO CART</button>
+            </div>
+        </section>
+
+        <!-- Tabs Section -->
+        <section class="tabs-section">
+            <div class="container">
+                <div class="tabs">
+                    <div class="tab active" data-tab="offers">Offers</div>
+                    <div class="tab" data-tab="ingredients">Ingredients</div>
+                    <div class="tab" data-tab="usage">How to Use</div>
+                    <div class="tab" data-tab="details">Details</div>
+                </div>
+
+                <div class="tab-content active" id="offers">
+                    <div class="offers-section">
+                        <div class="offer-item">
+                            <div class="offer-title">Sitewide Offers</div>
+                            <div>Buy 2 Get 3 Free - Flat 66% Off on Gift Sets</div>
+                        </div>
+                        <div class="offer-item">
+                            <div class="offer-title">Save 5%</div>
+                            <div>Shop the hidden gems of 5% each. Add 5 products from Store 5% in the cart to avail the offer.</div>
+                        </div>
+                        <div class="offer-item">
+                            <div class="offer-title">Build Your Own Box & Save More</div>
+                            <div>Buy 3 or 4 Free offers is not applicable on Karma Coin offer, Share Means, Hair Protein, Neem Combs.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="ingredients">
+                    <p>Ritha, Shikekal, Amla, Brahmi, Bhringraj, Jalamansi, Jasvand, Methidana, Linseed, Curry Leaves, Neem Leaves, Aoe Vera, Banyan Roots, Heena, Glycerin, Vitamin-E, Beetroot Powder, Honey, Lemon Peel Powder, Orange Peel Powder, Indigo Powder</p>
+                </div>
+
+                <div class="tab-content" id="usage">
+                    <p>Apply to scalp and hair, massage gently, and leave for at least 30 minutes before washing with a mild shampoo.</p>
+                </div>
+
+                <div class="tab-content" id="details">
+                    <p>100% natural hair oil suitable for all hair types. Free from chemicals and artificial additives.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="faq-title">FAQs</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is it?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        A natural hair oil blend of castor, coconut, and sesame oils with hibiscus and ayurvedic herbs.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why use this product?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        It promotes hair growth, adds volume, nourishes hair roots, and strengthens hair naturally.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Why is it special?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        It combines multiple beneficial oils in one product with traditional ayurvedic herbs for comprehensive hair care.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How is it made?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Using traditional methods with cold-pressed oils and carefully selected herbs following ayurvedic principles.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Which hair types is it good for?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Suitable for all hair types, especially beneficial for dry, damaged, or thinning hair.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Section -->
+        <!-- <section class="brand-section">
+            <div class="container">
+                <div class="brand-logo">JUST HERBS</div>
+                <div class="brand-tagline">360° beauty</div>
+                <div class="brand-values">
+                    <div class="brand-value">
+                        <div class="brand-value-icon">🛡️</div>
+                        <div>BEAUTY INGREDIENT PROTECTION</div>
+                    </div>
+                    <div class="brand-value">
+                        <div class="brand-value-icon">🌿</div>
+                        <div>CRUELTY FREE</div>
+                    </div>
+                    <div class="brand-value">
+                        <div class="brand-value-icon">✓</div>
+                        <div>FREE FROM PARABENS</div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <div class="container">
+                <h2 class="section-title">YOU MIGHT ALSO LIKE</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjhGOEY4Ii8+CjxyZWN0IHg9IjMwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiByeD0iNSIgZmlsbD0iI0VEOENBNCIvPgo8L3N2Zz4K" alt="Related Product 1">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">Javakusum Hair Oil 100ml mother</div>
+                            <div class="product-card-price">MRP ₹396</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjhGOEY4Ii8+CjxyZWN0IHg9IjMwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiByeD0iNSIgZmlsbD0iIzg4NjIzMiIvPgo8L3N2Zz4K" alt="Related Product 2">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-card-title">Just Herbs Castor & Black Onion...</div>
+                            <div class="product-card-price">MRP ₹275</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="reviews-header">
+                    <h2 class="section-title">Customer Reviews</h2>
+                    <div class="reviews-summary">
+                        <div class="overall-rating">4.67</div>
+                        <div>
+                            <div class="stars">★★★★★</div>
+                            <div>Based on 231 reviews</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer-name">★★★★★ Verified Reviewer</div>
+                        <div class="review-date">3 months ago</div>
+                    </div>
+                    <div class="review-text"> Shampoo</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer-name">★★★★★ Verified Reviewer</div>
+                        <div class="review-date">3 months ago</div>
+                    </div>
+                    <div class="review-text"> Shampoo</div>
+                </div>
+
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="reviewer-name">★★★★★ Verified Reviewer</div>
+                        <div class="review-date">3 months ago</div>
+                    </div>
+                    <div class="review-text">Shampoo</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script> </script>
+    <script src="./p2.js"></script>
+</body>
+</html>
