@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disha Skin Care Contact</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      transition: font-size 0.3s ease;
+    }
+
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      margin: 30px auto;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #4CAF50;
+    }
+
+    .card p {
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    .card a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Disha Skin Care</h1>
+  </div>
+
+  <div class="card" id="dishaCard">
+    <h2>Mrs. Disha Patil</h2>
+    <p><strong>Address:</strong><br>
+      Near Hiradevi Mandir,<br>
+      KhariGaon, Thane - 400605</p>
+    <p><strong>Email:</strong> <a href="mailto:dishaskinc@gmail.com">dishaskinc@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+918766642740">+91 8766642740</a></p>
+    <p><strong>Website:</strong> <a href="http://www.dishaskincare.in" target="_blank">www.dishaskincare.in</a></p>
+    <p><strong>Instagram:</strong> <a href="https://instagram.com/disha_herbal_care" target="_blank">@disha_herbal_care</a></p>
+    <p><em>All types of herbal cosmetic products are available.</em></p>
+  </div>
+
+  <script>
+    function adjustResponsiveStyles() {
+      const width = window.innerWidth;
+      const card = document.getElementById('dishaCard');
+      const body = document.body;
+
+      if (width <= 480) {
+        // Small mobile
+        card.style.padding = '15px';
+        card.style.margin = '15px';
+        body.style.fontSize = '14px';
+      } else if (width <= 768) {
+        // Tablets
+        card.style.padding = '20px';
+        card.style.margin = '20px auto';
+        body.style.fontSize = '16px';
+      } else {
+        // Desktops
+        card.style.padding = '25px';
+        card.style.margin = '30px auto';
+        body.style.fontSize = '18px';
+      }
+    }
+
+    // Run on page load and window resize
+    window.addEventListener('load', adjustResponsiveStyles);
+    window.addEventListener('resize', adjustResponsiveStyles);
+  </script>
+
+</body>
+</html>
