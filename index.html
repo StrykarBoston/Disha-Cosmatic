@@ -1,14 +1,372 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trending Animations Skin Care</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./indexstyle.css">
-<script src="./index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disha Skin Care - Herbal Products</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Apply the Poppins font family */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fdfdfd;
+        }
+        /* Custom Colors */
+        .bg-custom-light-green { background-color: #f0f8f0; }
+        .btn-custom-green { 
+            display: inline-block;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 12px;
+            box-shadow: rgba(184, 250, 208, 0.15) 0px 2px 12px;
+            padding: 9px 24px;
+            background: linear-gradient(90deg, rgb(76, 175, 80), rgb(113, 211, 124));
+            border-radius: 24px;
+            text-decoration: none;
+            border: none;
+            transition: background 0.13s, box-shadow 0.2s, transform 0.12s;
+            animation: fadeUp 0.8s ease 0.7s both;
+        }
+        
+        .btn-custom-green:hover {
+            background: linear-gradient(90deg, rgb(57, 132, 60), rgb(96, 182, 108));
+            transform: translateY(-2px) scale(1.07);
+            box-shadow: 0 6px 22px rgba(165, 246, 189, 0.53);
+        }
+        
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+        .btn-custom-green:hover { display: inline-block;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 12px;
+    box-shadow: rgba(184, 250, 208, 0.15) 0px 2px 12px;
+    padding: 9px 24px;
+    background: linear-gradient(90deg, rgb(76, 175, 80), rgb(113, 211, 124));
+    border-radius: 24px;
+    text-decoration: none;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    transition: background 0.13s, box-shadow 0.2s, transform 0.12s;
+    animation: 0.8s ease 0.7s 1 normal both running fadeUp; }
+        .text-custom-dark-green { color: #2c5c3b; }
+        .ring-custom-green { --tw-ring-color: #6BCB77; }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide img {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide img {
+                height: 250px;
+            }
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 50px 30px 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide-caption {
+                padding: 30px 20px 20px;
+            }
+            
+            .slide-caption h3 {
+                font-size: 1.5rem;
+            }
+            
+            .slide-caption p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Fade animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 0.3s;
+        }
+
+        @keyframes fade {
+            from {opacity: 0.4}
+            to {opacity: 1}
+        }
+
+        /* Navigation arrows */
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            border: none;
+            padding: 20px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .slide-nav {
+                padding: 15px 12px;
+                font-size: 16px;
+            }
+        }
+
+        .slide-nav:hover {
+            background: rgba(255,255,255,0.95);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        /* Dots indicator */
+        .dots-container {
+            margin-top: 20px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: #6BCB77;
+        }
+        header {
+      background: #fff;
+      padding: 18px 0;
+      box-shadow: 0 2px 24px rgba(0,0,0,.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeDown 1s .1s backwards;
+    }
+    @keyframes fadeDown {
+      from { opacity:0; transform: translateY(-32px);}
+      to   { opacity:1; transform: translateY(0);}
+    }
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 1.4rem;
+      color: #3a6844;
+      text-decoration: none;
+      transition: color .4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg,#71d37c,#4caf50);
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.55,.06,.68,.19);
+    }
+    .logo:hover::after {
+      transform: scaleX(1);
+    }
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      font-weight: 500;
+      align-items: center;
+      animation: fadeRight 1s .2s backwards;
+    }
+    .nav-links a {
+      color: #333;
+      text-decoration: none;
+      transition: color .2s;
+      position:relative;
+    }
+    .nav-links a::after {
+      content:"";
+      display:block;
+      height:2px;
+      width:0;
+      background: #79e7a9;
+      transition:.3s;
+      position:absolute;
+      bottom:-3px; left:0;
+    }
+    .nav-links a:hover { color: #6ba368;}
+    .nav-links a:hover::after { width:100%; }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle span {
+      width: 24px;
+      height: 3px;
+      background: #3a6844;
+      border-radius: 2px;
+      display: block;
+      transition: all .4s;
+    }
+
+    /* Mobile responsive navigation */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        border-radius: 0 0 10px 10px;
+        z-index: 1000;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links a {
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+    }
+   
+
+    </style>
 </head>
-<body>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
   <header>
     <div class="container nav">
       <a href="/index.html" class="logo">
@@ -27,84 +385,344 @@
       </nav>
     </div>
   </header>
+    <!-- Main Content -->
   <main>
-    <section class="container hero">
-      <div class="hero-img">
-        <img src="./img/2211.i203.039.F.m004.c9.sandalwood_realistic_perfumes_aromatherapy_AD-removebg-preview.png"style="height: 254px;px;" alt="Product Model">
+        <!-- Hero Section -->
+        <section class="bg-custom-light-green py-16 md:py-24 overflow-hidden">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image Column -->
+                <div class="flex justify-center reveal">
+                    <img src="./disha image/DSC_1326.jpg" alt="Disha Skin Care Herbal Products" class="rounded-lg shadow-2xl max-w-sm w-full transform hover:scale-105 transition-transform duration-300">
+                </div>
+                
+                <!-- Text Column -->
+                <div class="text-center md:text-left reveal" style="transition-delay: 200ms;">
+                    <h1 class="text-4xl md:text-5xl font-bold text-custom-dark-green leading-tight mb-4">Pure, Natural &amp; Authentic Herbal Care</h1>
+                    <p class="text-lg text-gray-600 mb-8">Discover our carefully formulated herbal products for your face, hair, and body. Gentle, pure, and always cruelty-free.</p>
+                    <div class="grid grid-cols-2 gap-4 text-left">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 transform hover:-translate-y-1 transition-transform">
+                            <h3 class="font-semibold text-custom-dark-green">Naturally Made</h3>
+                            <p class="text-sm text-gray-500">Plant-based and toxin-free.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 transform hover:-translate-y-1 transition-transform">
+                            <h3 class="font-semibold text-custom-dark-green">Chemical Free</h3>
+                            <p class="text-sm text-gray-500">No harsh additives.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 transform hover:-translate-y-1 transition-transform">
+                            <h3 class="font-semibold text-custom-dark-green">For All Skin Types</h3>
+                            <p class="text-sm text-gray-500">Safe and allergy-tested.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 transform hover:-translate-y-1 transition-transform">
+                            <h3 class="font-semibold text-custom-dark-green">Cruelty-Free</h3>
+                            <p class="text-sm text-gray-500">Never tested on animals.</p>
+                        </div>
       </div>
-      <div class="hero-content">
-        <h1 class="hero-title">100% Organic Wrinkle Removing Creams</h1>
-        <p class="hero-desc">
-          Discover your natural beauty with our carefully formulated, organic creams for face and body. Gentle, pure, and always cruelty-free.
-        </p>
-        <div class="features">
-          <div class="feature"><b>Natural</b> Plant-based and toxin-free for gentle care.</div>
-          <div class="feature"><b>Fragrance Free</b> No artificial scents or harsh chemicals.</div>
-          <div class="feature"><b>Allergy Tested</b> Safe for all skin types.</div>
-          <div class="feature"><b>Paraben Free</b> Clean formula with no harmful additives.</div>
-        </div>
-      </div>
-    </section>
-    <section class="container section">
-      <div class="section-title">Worldwide Fashion Collection</div>
-      <div class="collections">
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Soothing Cream">
-          </div>
-          <div class="collection-title">Aloe Herb Soothing Gel</div>
-          <div class="collection-desc">For instant comfort & hydration.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Blush Cream">
-          </div>
-          <div class="collection-title">Natural Face Cream</div>
-          <div class="collection-desc">Daily rejuvenation for soft, glowing skin.</div>
-          <a href="#" class="btn">Shop Now</a>
-        </div>
-        <div class="collection-item animate">
-          <div class="collection-img">
-            <img src="./logo.png" alt="Moisturizer">
-          </div>
-          <div class="collection-title">Hydra Luxe Moisturizer</div>
-          <div class="collection-desc">Long-lasting, lightweight hydration.</div>
-          <a href="#" class="btn">Shop Now</a>
         </div>
       </div>
     </section>
-    <section class="container section">
-      <div class="section-title">Latest Worthwhile Collections</div>
-      <div class="products-list">
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="Apricot Balm">
+
+        <!-- Slideshow Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 reveal">Our Product Gallery</h2>
+                <div class="slideshow-container relative max-w-4xl mx-auto">
+                    <!-- Slides -->
+                    <div class="slide fade active">
+                        <img src="./disha image/00005.jpg" alt="Disha Herbal Products" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                        <div class="slide-caption">
+                            <h3 class="text-2xl font-bold text-white mb-2">Disha Herbal Products</h3>
+                            <p class="text-white/90">Pure Natural & Authentic</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide fade">
+                        <img src="./disha image/DSC_1463.jpg" alt="Natural Care" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                        <div class="slide-caption">
+                            <h3 class="text-2xl font-bold text-white mb-2">Natural Care</h3>
+                            <p class="text-white/90">Gentle & Effective</p>
+                        </div>
           </div>
-          <div class="product-title">Apricot Melon Smoothing Balm</div>
-          <div class="product-desc">Softens and refreshes tired skin.</div>
+                    
+                    <div class="slide fade">
+                        <img src="./disha image/DSC_1434.jpg" alt="Herbal Wellness" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                        <div class="slide-caption">
+                            <h3 class="text-2xl font-bold text-white mb-2">Herbal Wellness</h3>
+                            <p class="text-white/90">Traditional & Modern</p>
         </div>
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="BlueHerb">
           </div>
-          <div class="product-title">BlueHerb SkinClarity Cream</div>
-          <div class="product-desc">Clarity and bright radiance.</div>
+                    
+                    <div class="slide fade">
+                        <img src="./disha image/DSC_1483.jpg" alt="Skin Care" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                        <div class="slide-caption">
+                            <h3 class="text-2xl font-bold text-white mb-2">Skin Care</h3>
+                            <p class="text-white/90">Nourish & Protect</p>
         </div>
-        <div class="product-item animate">
-          <div class="product-img">
-            <img src="./logo.png" alt="Cucumber Serum">
           </div>
-          <div class="product-title">Revitalize Cooling Serum</div>
-          <div class="product-desc">Ultimate cool and smooth finish.</div>
+
+                    <!-- Navigation arrows -->
+                    <button class="slide-nav prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slide-nav next" onclick="changeSlide(1)">❯</button>
+        </div>
+                
+                <!-- Dots indicator -->
+                <div class="dots-container text-center mt-6">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+          </div>
+        </div>
+        </section>
+
+        <!-- Skin & Body Collection -->
+        <section id="products" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 reveal">Skin & Body Care Collection</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <!-- Product Card: Goat Milk Soap -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:ring-4 ring-custom-green/50 reveal">
+                        <img src="./disha image/DSC_1303.jpg" alt="Goat Milk Soap" class="mx-auto mb-4 rounded-md">
+                        <h3 class="text-xl font-semibold mb-2">Goat Milk Soap</h3>
+                        <p class="text-gray-500 mb-6">Nourishes and moisturizes for soft, healthy skin.</p>
+                        <a href="#" class="inline-block btn-custom-green text-white font-semibold py-2 px-8 rounded-full transition-all duration-300 transform hover:scale-105">Shop Now</a>
+          </div>
+                    
+                    <!-- Product Card: Charcoal Soap -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:ring-4 ring-custom-green/50 reveal" style="transition-delay: 200ms;">
+                        <img src="./disha image/DSC_1303.jpg" alt="Charcoal Soap" class="mx-auto mb-4 rounded-md">
+                        <h3 class="text-xl font-semibold mb-2">Charcoal Soap</h3>
+                        <p class="text-gray-500 mb-6">Deeply cleanses and purifies pores from impurities.</p>
+                        <a href="#" class="inline-block btn-custom-green text-white font-semibold py-2 px-8 rounded-full transition-all duration-300 transform hover:scale-105">Shop Now</a>
+        </div>
+        
+                    <!-- Product Card: Herbal Pain Relief Oil -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:ring-4 ring-custom-green/50 reveal" style="transition-delay: 400ms;">
+                        <img src="./disha image/DSC_1413.jpg" alt="Herbal Pain Relief Oil" class="mx-auto mb-4 rounded-md">
+                        <h3 class="text-xl font-semibold mb-2">Herbal Pain Relief Oil</h3>
+                        <p class="text-gray-500 mb-6">Soothes sore muscles and joints with a warming effect.</p>
+                        <a href="#" class="inline-block btn-custom-green text-white font-semibold py-2 px-8 rounded-full transition-all duration-300 transform hover:scale-105">Shop Now</a>
+                    </div>
+                </div>
+      </div>
+    </section>
+
+        <!-- Hair Care Collection -->
+        <section class="bg-gray-50 py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 reveal">Nourishing Hair Care</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    
+                    <!-- Product Card: Herbal Shampoo -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:ring-4 ring-custom-green/50 reveal">
+                        <img src="./disha image/DSC_1326.jpg" alt="Herbal Shampoo" class="mx-auto mb-4 rounded-md">
+                        <h3 class="text-xl font-semibold mb-2">Herbal Shampoo</h3>
+                        <p class="text-gray-500 mb-6">Cleanses gently while strengthening roots and adding shine.</p>
+                        <a href="#" class="inline-block btn-custom-green text-white font-semibold py-2 px-8 rounded-full transition-all duration-300 transform hover:scale-105">Shop Now</a>
+                    </div>
+                    
+                    <!-- Product Card: Herbal Hair Oil -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:ring-4 ring-custom-green/50 reveal" style="transition-delay: 200ms;">
+                        <img src="./disha image/DSC_1358 (Edited).jpg" alt="Herbal Hair Oil" class="mx-auto mb-4 rounded-md">
+                        <h3 class="text-xl font-semibold mb-2">Herbal Hair Oil</h3>
+                        <p class="text-gray-500 mb-6">Provides deep nourishment for strong and healthy hair.</p>
+                        <a href="#" class="inline-block btn-custom-green text-white font-semibold py-2 px-8 rounded-full transition-all duration-300 transform hover:scale-105">Shop Now</a>
+                    </div>
+          </div>
+        </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="about" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12 reveal">What Our Customers Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md reveal">
+                        <p class="text-gray-600 italic mb-4">"The goat milk soap is amazing! My skin has never felt softer. I'm a customer for life."</p>
+                        <p class="font-semibold text-custom-dark-green">- Priya S.</p>
+          </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md reveal" style="transition-delay: 200ms;">
+                        <p class="text-gray-600 italic mb-4">"I use the herbal hair oil twice a week and the difference is incredible. My hairfall has reduced significantly."</p>
+                        <p class="font-semibold text-custom-dark-green">- Rohan M.</p>
+        </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-lg shadow-md reveal" style="transition-delay: 400ms;">
+                        <p class="text-gray-600 italic mb-4">"Finally, a pain relief oil that actually works and smells natural. Highly recommended!"</p>
+                        <p class="font-semibold text-custom-dark-green">- Anjali K.</p>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Add more animated, visually rich sections as needed -->
-  </main>
-  <footer class="footer" style="background:#f5f3ee; color:#6a7c60; padding:28px 0; text-align:center; border-radius:24px 24px 0 0; font-size:0.98rem; margin-top:42px;">
-    &copy; 2025 Disha Skin Care. Crafted for natural beauty. All rights reserved.
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="text-white mt-16" style="background-color: #2c6b31;">
+      <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+              <div>
+                    <h3 class="text-xl font-bold mb-4">Disha SKIN CARE</h3>
+                    <p class="text-gray-400">Crafted for natural beauty.</p>
+              </div>
+              <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white">Shop All</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">Our Story</a></li>
+                  </ul>
+              </div>
+              <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.153 2.153c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-2.153 2.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.153-2.153c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 012.153-2.153c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.75-9.25a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg>
+                        </a>
+                  </div>
+              </div>
+          </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Disha Skin Care. All rights reserved.</p>
+          </div>
+      </div>
   </footer>
   
+    <script>
+        // JavaScript for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+
+        // JavaScript for mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+        
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Slideshow functionality
+        let slideIndex = 0;
+        let slideInterval;
+
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            const slides = document.querySelectorAll('.slide');
+            
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+            
+            showSlides();
+            resetInterval();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n - 1;
+            showSlides();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 3000); // Change slide every 3 seconds
+        }
+
+        // Start automatic slideshow
+        slideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 3000);
+
+        // Pause slideshow on hover
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        slideshowContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        slideshowContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                changeSlide(1);
+            }, 3000);
+        });
+
+        // Toggle menu function for header
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            // Close menu when clicking outside
+            if (navLinks.classList.contains('active')) {
+                document.addEventListener('click', closeMenuOnOutsideClick);
+            }
+        }
+
+        function closeMenuOnOutsideClick(event) {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!menuToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+                document.removeEventListener('click', closeMenuOnOutsideClick);
+            }
+        }
+
+        // Close menu when clicking on navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.querySelector('.menu-toggle');
+                
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
