@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchProducts(sort = 'popularity', category = '') {
         const productGrid = document.getElementById('productGrid'); // Ensure this is not null
         if (productGrid) {
-            productGrid.innerHTML = '<div style="text-align: center; width: 100%; grid-column: 1 / -1;">Loading products...</div>';
+            productGrid.innerHTML = '<div style="text-align: center; width: 100%; grid-column: 1 / -1;"></div>';
         }
 
         let url = 'http://127.0.0.1:5000/api/products';
@@ -118,12 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchedProducts = data;
             renderProducts(fetchedProducts);
         } catch (error) {
-            console.error('Error fetching products:', error);
+ console.error('Error fetching products:', error);
             if (productGrid) {
-                productGrid.innerHTML = '<div style="text-align: center; width: 100%; grid-column: 1 / -1; color: red;">Failed to load products. Please ensure the backend is running.</div>';
+        // productGrid.innerHTML = '<div style="text-align: center; width: 100%; grid-column: 1 / -1; color: red;">No products available at the moment.</div>';
             }
             const productsCountSpan = document.querySelector('.products-count');
-            if (productsCountSpan) productsCountSpan.textContent = `0 products found`;
+            if (productsCountSpan) productsCountSpan.textContent = ``;
         }
     }
 
@@ -218,63 +218,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- YOUR EXISTING COLLECTIONS DATA ---
-    const collections = [
+   const collections = [
+       
         {
-            name: "Aloe Herb Soothing",
-            description: "For instant comfort & hydration",
-            icon: "🌿",
-            productId: 1 // Assigning Product ID 1 (e.g., Herbal Hair Oil)
+            name: "Whitening Soap", // Added from your uploaded image
+            description: "Advanced formula for a brighter, even skin tone.",
+            image_url: "../disha image/DSC_1301.jpg", // Correct relative path
+            productId: 6 // Giving it a new, unique productId
         },
         {
-            name: "Aloe Herb Soothing",
-            description: "For instant comfort & hydration",
-            icon: "🌿",
-            productId: 2 // Assigning Product ID 2 (e.g., Neem & Tulsi Soap)
+            name: "Charcoal Soap",
+            description: "Deep cleansing activated charcoal soap for detox and purification",
+            image_url: "../disha image/DSC_1303.jpg", // Corrected to existing image
+            productId: 2
         },
         {
-            name: "Aloe Herb Soothing",
-            description: "For instant comfort & hydration",
-            icon: "🌿",
-            productId: 3 // Assigning Product ID 3 (e.g., Amla Shikakai Shampoo)
+            name: "Herbal Hair Oil",
+            description: "Nourishing blend of natural oils for strong, lustrous hair growth",
+            image_url: "../disha image/DSC_1358 EDITED.png", // Corrected to existing image
+            productId: 3
         },
         {
-            name: "Aloe Herb Soothing",
-            description: "For instant comfort & hydration",
-            icon: "🌿",
-            productId: 4 // Assigning Product ID 4 (e.g., Rose Water Toner)
+            name: "Natural Shampoo",
+            description: "Gentle herbal shampoo for all hair types, sulfate-free formula",
+            image_url: "../disha image/DSC_1354.jpg", // Corrected to existing image
+            productId: 4
         },
         {
-            name: "Aloe Herb Soothing",
-            description: "For instant comfort & hydration",
-            icon: "🌿",
-            productId: 5 // Assigning Product ID 5 (e.g., Sandalwood Soap)
+            name: "Pain Relief Oil",
+            description: "Therapeutic herbal oil blend for natural pain relief and relaxation",
+            image_url: "../disha image/DSC_1413.jpg", // Corrected to existing image
+            productId: 5
         }
     ];
 
+
     const latestCollections = [
         {
-            name: "Apricot Moist Smoothing Balm",
-            description: "Softens and refreshes tired skin",
+            name: "Ayurvedic Hair Oil",
+            description: "Complete hair care solution with traditional herbs",
+            image_url: "../disha image/DSC_1358 EDITED.png",
             productId: 1 // Assigning Product ID 1
         },
         {
-            name: "Blueberry Skin Clarity Cream",
-            description: "Clarity and bright radiance",
+            name: "Natural Soap Collection",
+            description: "Handcrafted soaps with organic ingredientsity ",
+            image_url: "../disha image/DSC_1301.jpg",
             productId: 2 // Assigning Product ID 2
         },
         {
-            name: "Revitalize Cooling Serum",
-            description: "Ultimate cool and smooth finish",
+            name: "Therapeutic Oils",
+            description: "Pain relief and wellness oils for ultimate comforte",
+            image_url: "../disha image/DSC_1413.jpg",
             productId: 3 // Assigning Product ID 3
         }
     ];
 
-    function renderCollections() {
+
+function renderCollections() {
         const collectionsGrid = document.getElementById('collectionsGrid');
         if (collectionsGrid) {
             collectionsGrid.innerHTML = collections.map(collection => `
                 <div class="collection-card">
-                    <div class="collection-icon">${collection.icon}</div>
+                    <div class="collection-image-container">
+                         <img src="${collection.image_url || 'https://via.placeholder.com/200?text=No+Image'}" 
+                             alt="${collection.name}" 
+                             class="collection-image"
+                             onerror="this.onerror=null;this.src='https://via.placeholder.com/200?text=No+Image';">
+                    </div>
                     <h3>${collection.name}</h3>
                     <p>${collection.description}</p>
                     <button class="shop-now-btn" data-product-id="${collection.productId}">Buy Now</button>
@@ -289,14 +300,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-
     function renderLatestCollections() {
         const latestCollectionsContainer = document.getElementById('latestCollections');
         if (latestCollectionsContainer) {
             latestCollectionsContainer.innerHTML = latestCollections.map(collection => `
                 <div class="latest-card">
                     <div class="latest-card-content">
-                        <div class="collection-icon">🌿</div>
+                        ${collection.image_url ? 
+                            `<div class="collection-image-container">
+                                <img src="${collection.image_url}" alt="${collection.name}" class="collection-image" 
+                                     onerror="this.onerror=null;this.parentElement.innerHTML='<div class=\\'collection-icon\\'>🌿</div>';">
+                            </div>` : 
+                            '<div class="collection-icon">🌿</div>'
+                        }
                         <h3>${collection.name}</h3>
                         <p>${collection.description}</p>
                         <button class="shop-now-btn" data-product-id="${collection.productId}">Buy Now</button>
