@@ -99,7 +99,8 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      background: linear-gradient(120deg,#e7f6e7 60%,#f1f7ed 100%);
+      
+      background: linear-gradient(90deg,#38843d,#60b66c);
       padding: 60px 0 40px 0;
       border-radius: 0 0 32px 32px;
       margin-bottom: 26px;
@@ -117,6 +118,7 @@
       opacity:0;
       transform:scale(.95);
       animation:fadeInL 1s .6s forwards;
+      box-shadow:#f8f8f4;
     }
     @keyframes fadeInL {
       to{ opacity:1; transform:none; }
@@ -125,7 +127,7 @@
       max-width: 260px;
       border-radius: 24px;
       object-fit: cover;
-      box-shadow: 0 12px 40px rgba(89,180,121,.06);
+      box-shadow: 0 12px 40px rgba(254, 255, 254, 0.06);
       animation: floating 2.6s infinite ease-in-out alternate;
     }
     @keyframes floating {
@@ -146,13 +148,13 @@
       font-size:2.7rem;
       font-weight:700;
       letter-spacing:1px;
-      color:#254e37;
+      color:#fbfffd;
       margin:10px 0;
       animation: fadeUp .9s .3s both;
     }
     .hero-desc {
       font-size:1.13rem;
-      color:#555;
+      color:#ffffff;
       margin-bottom:24px;
       animation: fadeUp 1s .4s both;
     }
@@ -254,9 +256,9 @@
       transform: scale(1.04) rotate(-.5deg);
     }
     .collection-img img, .product-img img {
-      width: 84px; height: 84px;
+      width: px; height: 160px;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 18px;
       background: #eafcef;
       margin-bottom: 11px;
       transition: transform .22s;
