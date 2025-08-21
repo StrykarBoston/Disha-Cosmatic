@@ -494,13 +494,49 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // Helper to close with optional delay
+        function closeFloatingMenu(delayMs = 0) {
+            const performClose = () => {
+                // Remove any open submenus
+                floatingDropdown.querySelectorAll('.dropdown-content.open')
+                    .forEach(el => el.classList.remove('open'));
+                floatingToggle.classList.remove('active');
+                floatingDropdown.classList.remove('active');
+            };
+            if (delayMs > 0) {
+                setTimeout(performClose, delayMs);
+            } else {
+                performClose();
+            }
+        }
+
         // Close menu when clicking on menu items
         const menuItems = floatingDropdown.querySelectorAll('a');
         menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                floatingToggle.classList.remove('active');
-                floatingDropdown.classList.remove('active');
-            });
+            // If clicking the Categories toggle, just toggle its submenu and keep menu open
+            if (item.classList.contains('dropbtn')) {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const content = item.parentElement && item.parentElement.querySelector('.dropdown-content');
+                    if (content) {
+                        content.classList.toggle('open');
+                    }
+                });
+                return;
+            }
+
+            // If the link is inside the categories list, delay closing so users can choose
+            if (item.closest('.dropdown-content')) {
+                item.addEventListener('click', function() {
+                    closeFloatingMenu(700); // wait briefly before closing
+                });
+            } else {
+                // Other top-level links close immediately
+                item.addEventListener('click', function() {
+                    closeFloatingMenu(0);
+                });
+            }
         });
     }
 
