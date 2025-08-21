@@ -148,71 +148,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- NEW: FETCH AND RENDER CATEGORIES ---
+    // --- NEW: FETCH AND RENDER CATEGORIES (with graceful fallback) ---
+    function setupCategoryHandlers(categoriesContainer) {
+        const container = categoriesContainer;
+        if (!container) return;
+        container.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const selectedCategory = event.currentTarget.dataset.category;
+
+                // Update active state within this container
+                container.querySelectorAll('a').forEach(a => a.classList.remove('active-category'));
+                event.currentTarget.classList.add('active-category');
+
+                // Determine sort param from current select
+                const currentSort = sortDropdown ? sortDropdown.value : 'popularity';
+                let sortParam = '';
+                if (currentSort === 'Price: Low to High') {
+                    sortParam = 'price_asc';
+                } else if (currentSort === 'Price: High to Low') {
+                    sortParam = 'price_desc';
+                } else if (currentSort === 'Customer Rating') {
+                    sortParam = 'rating';
+                } else {
+                    sortParam = 'popularity';
+                }
+                fetchProducts(sortParam, selectedCategory);
+            }, { once: false });
+        });
+    }
+
     async function fetchCategories() {
-        const categoriesDropdown = document.getElementById('categoriesDropdown');
-        if (!categoriesDropdown) {
+        const categoriesDropdowns = document.querySelectorAll('#categoriesDropdown');
+        if (!categoriesDropdowns || categoriesDropdowns.length === 0) {
             console.error("Error: Element with ID 'categoriesDropdown' not found.");
             return;
         }
 
-        let url = 'http://127.0.0.1:5000/api/categories';
+        const url = 'http://127.0.0.1:5000/api/categories';
         try {
             const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const categories = await response.json();
-            
-            // Clear existing and add "All Products" back
-            categoriesDropdown.innerHTML = '';
-            const allProductsLink = document.createElement('a');
-            allProductsLink.href = "#";
-            allProductsLink.dataset.category = "All";
-            allProductsLink.textContent = "All Products";
-            allProductsLink.classList.add('active-category'); // Set "All" as default active
-            categoriesDropdown.appendChild(allProductsLink);
 
-            categories.forEach(category => {
-                const categoryLink = document.createElement('a');
-                categoryLink.href = "#"; // Link to itself for now
-                categoryLink.dataset.category = category.name; // Store category name in data attribute
-                categoryLink.textContent = category.name;
-                categoriesDropdown.appendChild(categoryLink);
-            });
+            categoriesDropdowns.forEach(categoriesDropdown => {
+                // Rebuild list with fetched categories
+                categoriesDropdown.innerHTML = '';
+                const allProductsLink = document.createElement('a');
+                allProductsLink.href = '#';
+                allProductsLink.dataset.category = 'All';
+                allProductsLink.textContent = 'All Products';
+                allProductsLink.classList.add('active-category');
+                categoriesDropdown.appendChild(allProductsLink);
 
-            // Add event listeners to newly created category links
-            categoriesDropdown.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    const selectedCategory = event.target.dataset.category;
-                    
-                    // Remove active class from all category links
-                    categoriesDropdown.querySelectorAll('a').forEach(a => a.classList.remove('active-category'));
-                    // Add active class to the clicked link
-                    event.target.classList.add('active-category');
-
-                    // Fetch products filtered by this category
-                    const currentSort = sortDropdown ? sortDropdown.value : 'popularity'; // Get current sort
-                    let sortParam = '';
-                    if (currentSort === 'Price: Low to High') {
-                        sortParam = 'price_asc';
-                    } else if (currentSort === 'Price: High to Low') {
-                        sortParam = 'price_desc';
-                    } else if (currentSort === 'Customer Rating') {
-                        sortParam = 'rating';
-                    } else { // Default or Popularity
-                        sortParam = 'popularity';
-                    }
-                    fetchProducts(sortParam, selectedCategory);
+                categories.forEach(category => {
+                    const categoryLink = document.createElement('a');
+                    categoryLink.href = '#';
+                    categoryLink.dataset.category = category.name;
+                    categoryLink.textContent = category.name;
+                    categoriesDropdown.appendChild(categoryLink);
                 });
+
+                setupCategoryHandlers(categoriesDropdown);
             });
 
         } catch (error) {
-            console.error('Error fetching categories:', error);
-            if (categoriesDropdown) {
-                categoriesDropdown.innerHTML += '<a href="#">Error loading categories</a>';
-            }
+            console.warn('Categories API unavailable. Falling back to static links.', error);
+            // Keep existing static links; ensure they work
+            categoriesDropdowns.forEach(categoriesDropdown => {
+                // Make sure there is an active default
+                const allLink = categoriesDropdown.querySelector('a[data-category="All"]');
+                if (allLink) {
+                    categoriesDropdown.querySelectorAll('a').forEach(a => a.classList.remove('active-category'));
+                    allLink.classList.add('active-category');
+                }
+                setupCategoryHandlers(categoriesDropdown);
+            });
         }
     }
 
