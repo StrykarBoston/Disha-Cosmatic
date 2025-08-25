@@ -175,3 +175,47 @@ if (signInBtn) {
     });
 }
    
+
+
+
+
+ // Floating Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingToggle = document.getElementById('floatingMenuToggle');
+    const floatingDropdown = document.getElementById('floatingDropdown');
+    
+    if (floatingToggle && floatingDropdown) {
+        floatingToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Toggle active states
+            floatingToggle.classList.toggle('active');
+            floatingDropdown.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!floatingToggle.contains(e.target) && !floatingDropdown.contains(e.target)) {
+                floatingToggle.classList.remove('active');
+                floatingDropdown.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on menu items
+        const menuItems = floatingDropdown.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                floatingToggle.classList.remove('active');
+                floatingDropdown.classList.remove('active');
+            });
+        });
+    }
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            if (floatingToggle) floatingToggle.classList.remove('active');
+            if (floatingDropdown) floatingDropdown.classList.remove('active');
+        }
+    });
+});

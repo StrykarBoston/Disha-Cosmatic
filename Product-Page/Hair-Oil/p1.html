@@ -15,27 +15,27 @@
             <a href="./shop.html" class="logo">
                 <img src="../../img/nav logo.png" alt="Disha Logo" style="height: 41px;">
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <!-- <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button> -->
             
             <ul class="nav-menu" id="navMenu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../new shop/shop.html">Shop</a></li>
-                <li><a href="../aboutpage/about.html">About</a></li>
-                <li><a href="../contactpage/contact.html">Contact</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/new shop/shop.html">Shop</a></li>
+                <li><a href="/aboutpage/about.html">About</a></li>
+                <li><a href="/contactpage/contact.html">Contact</a></li>
                 
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Categories ▼</a>
                     <div class="dropdown-content" id="categoriesDropdown">
                         <a href="#" data-category="All">All Products</a>
-                        <a href="#" data-category="All">Soap</a>
-                        <a href="#" data-category="All">shampoo</a>
-                        <a href="#" data-category="All">Hair Oil</a>
-                        <a href="#" data-category="All">pain relief oil</a>
+                        <a href="/Product-Page/Whitening Soap/p5.html" data-category="All">Soap</a>
+                        <a href="/Product-Page/Shampoo/p2.html" data-category="All">shampoo</a>
+                        <a href="/Product-Page/Hair-Oil/p1.html" data-category="All">Hair Oil</a>
+                        <a href="/Product-Page/Pain Relief Oil/p3.html" data-category="All">pain relief oil</a>
                         </div>
                 </li>
             </ul>
 
-            <div class="search-container">
+            <!-- <div class="search-container">
                 <input type="text" class="search-box" placeholder="Search for...">
             </div>
 
@@ -49,6 +49,79 @@
                     <span class="cart-count" id="cartCount">0</span>
                 </div>
             </div>
+        </nav>
+    </header> -->
+
+    <button class="floating-menu-toggle" id="floatingMenuToggle">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+            <div class="floating-dropdown" id="floatingDropdown">
+                <div class="floating-dropdown-content">
+                    <!-- <a href="#overview">
+                        <span class="menu-icon-item">📊</span>
+                        Overview
+                    </a>
+                    <a href="#orders">
+                        <span class="menu-icon-item">📦</span>
+                        My Orders
+                    </a>
+                    <a href="#browse">
+                        <span class="menu-icon-item">🛍️</span>
+                        Browse Products
+                    </a>
+                    <a href="#wishlist">
+                        <span class="menu-icon-item">❤️</span>
+                        Wishlist
+                    </a>
+                    <a href="#profile">
+                        <span class="menu-icon-item">👤</span>
+                        Profile
+                    </a>
+                    <a href="#rewards">
+                        <span class="menu-icon-item">🎁</span>
+                        Rewards
+                    </a> -->
+
+                   <a href="/index.html">Home</a>
+                    <a href="/new shop/shop.html">Shop</a>
+                    <a href="/aboutpage/about.html">About</a>
+                    <a href="/contactpage/contact.html">Contact</a>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Categories ▼</a>
+                        <div class="dropdown-content" id="categoriesDropdown">
+                            <a href="#" data-category="All">All Products</a>
+                            <a href="/Product-Page/Whitening Soap/p5.html" data-category="All">Soap</a>
+                            <a href="/Product-Page/Shampoo/p2.html" data-category="All">shampoo</a>
+                            <a href="/Product-Page/Hair-Oil/p1.html" data-category="All">Hair Oil</a>
+                            <a href="/Product-Page/Pain Relief Oil/p3.html" data-category="All">pain relief oil</a>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search for...">
+            
+
+            <div class="user-actions">
+                <!-- <button class="sign-in-btn"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>Sign In</button> -->
+                <button class="sign-up-btn" onclick="window.location.href='../User-Auth/index.php'" style="background: #4CAF50; color: white; padding: 0.5rem 1rem; border: none; border-radius: 25px; margin-left: 10px; cursor: pointer; transition: background 0.3s;">Sign Up</button>
+                <div class="cart-icon" onclick="window.location.href='./cart.html'">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                <!-- </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </div> -->
         </nav>
     </header>
 
